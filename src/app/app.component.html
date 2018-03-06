@@ -1,3 +1,16 @@
 <h1>
   {{title}}
 </h1>
+<table>
+  <tr><td *ngFor="let team of teams" >{{team.name}}</td></tr>
+  <tr><td><button (click) = "onMatchesClick(2017,7,7)" >Matches</button>|<button (click) = "onRankingsClick('Football')">Rankings</button></td></tr>
+  <tr><td>
+    <div *ngIf="matches && matches.length > 0">
+       <match-grid [matches]="matches" ></match-grid>
+    </div>
+    <div *ngIf="rankings && rankings.length > 0">
+       <rankings-grid [rankings]="rankings" ></rankings-grid>
+    </div>
+  </td></tr>
+
+</table>
